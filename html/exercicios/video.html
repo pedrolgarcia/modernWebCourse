@@ -1,0 +1,75 @@
+<video id="meuVideo" width="800" height="450" controls autoplay controlsList="nodownload">
+    <source src="http://files.cod3r.com.br/curso-web/video.mp4" type="video/mp4">
+    Seu browser não suporta a tag de video.
+</video>
+
+<div progress="meuVideo" class="progress">
+    <div></div>
+</div>
+
+<button play="meuVideo">Play</button>
+<button pause="meuVideo">Pause</button>
+
+<style>
+    .progress {
+        height: 20px;
+        width: 500px;
+        border: solid 1px #444;
+        margin: 20px;
+    }
+
+    .progress > div {
+        background-color: red;
+        color: #fff;
+        height: 100%;
+        text-align: right;
+        font-size: 14px;
+        font-weight: bold;
+        width: 0%;
+    }
+</style>
+
+<script>
+    const video = document.querySelector('#meuVideo');
+    const playButton = document.querySelector('[play]');
+    const pauseButton = document.querySelector('[pause]');
+    video.oncontextmenu = () => false;
+
+    function progress(duration, currentTime) {
+        const progress = document.querySelector('[progress] > div');
+        const percentual = parseInt((currentTime / duration) * 100);
+
+        progress.style.width = `${percentual}%`;
+        progress.innerHTML = `${percentual}%`;
+    }
+
+    playButton.onclick = e => {
+        const duration = video.duration;
+        video.play();
+        setInterval(() => progress(duration, video.currentTime), 1000);
+    } 
+
+    pauseButton.onclick = e => {
+        video.pause();
+    } 
+
+    
+    /*function configurarVideo(id) {
+        const video = document.getElementById(id);
+        video.oncontextmenu = () => false;
+
+        document.querySelector(`[play=${id}]`).onclick = e => video.play();
+        document.querySelector(`[pause=${id}]`).onclick = e => video.pause();
+
+        setInterval(() => {
+            const percentual = (video.currentTime / video.duration) * 100;
+            const valorDiv = document.querySelector(`[progress=${id}] > div`);
+
+            valorDiv.style.width = `${percentual}%`;
+            valorDiv.innerHTML = `${percentual.toFixed(1)}%`;
+        }, 500)
+    }
+    
+    configurarVideo('meuVideo');*/
+
+</script>
