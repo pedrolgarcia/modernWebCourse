@@ -5,7 +5,20 @@
     <meta charset="UTF-8">
     <title>Box Model</title>
     <style>
-        /* ... */
+        body { font-size: 80px; margin: 0; }
+        .c1 { background-color: orange; }
+        .c2 { background-color: skyblue; }
+        .c3 { background-color: tomato; }
+
+        div {
+            float: left;
+            padding-top: 100px; /* específico */
+            padding: 10px 50px 100px 150px; /* shortcut - sentido horário - top > right > bottom > left */
+            padding: 100px 50px; /* eixo vetrical (top - bottom) > eixo horizontal (right - left) */
+            padding: 50px; /* aplica em todas as posições */
+            margin: 0 20px;
+            border: solid 15px black;
+        }
     </style>
 </head>
 
