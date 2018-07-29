@@ -4,8 +4,22 @@
     <meta charset="UTF-8">
     <title>Tamanho Box</title>
     <style>
+        * {
+            box-sizing: border-box; /* Não passa por herança, caso legítimo */
+        }
         body {
             font-size: 45px;
+            margin: 0;
+        }
+
+        div {
+            background-color: deepskyblue;
+            width: 100%;
+            height: 300px;
+            padding: 100px;
+            border: solid 20px;
+            /*box-sizing: content-box; Apenas tamanho do conteúdo recebe o tamanho definido
+            box-sizing: border-box; O tamanho do border, padding e content recebe recebe o tamanho definido */
         }
     </style>
 </head>

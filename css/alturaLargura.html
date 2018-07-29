@@ -5,9 +5,13 @@
     <meta charset="UTF-8">
     <title>Altura e Largura</title>
     <style>
+        html {
+            height: 100%;
+        }
         body {
             font-size: 40px;
             background-color: coral;
+            height: 100%; /* Alterando o parent para trabalharmos tamanhos relativos */
         }
 
         div {
@@ -16,6 +20,12 @@
 
         span {
             background-color: dodgerblue;
+        }
+
+        span, div {
+            width: 50%;
+            height: 50%; /* span não muda por ser padrão inline, e a div não muda pois a unidade é relativa */
+            height: 250px; /* body vai aumentando conforme vamos adicionando elementos, ou usamos tamanhos absolutos */
         }
     </style>
 </head>
