@@ -12,6 +12,18 @@
             border: solid 5px;
             display: none;
         }
+
+        @media (max-width: 600px) {
+            .muito-pequeno { display: block; }
+        }
+
+        @media (max-width: 1000px), (orientation: portrait) {
+            .pequeno-retrato { display: block; }
+        }
+
+        @media (min-width: 500px) and (max-width: 1000px) {
+            .intervalo { display: block; }
+        }
     </style>
 </head>
 <body>

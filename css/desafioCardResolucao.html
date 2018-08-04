@@ -5,60 +5,50 @@
     <meta charset="UTF-8">
     <title>Desafio Card</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-        }
-
         .curso {
+            /*float: left;*/
             display: inline-block;
-            width: 270px;
-            height: 310px;
-            margin: 20px;
-            border: 1px solid rgb(201, 201, 201);
-            box-shadow: 2px 2px 15px 2px rgb(201, 201, 201);
+            vertical-align: top;
+            font-family: Verdana, sans-serif;
+            border: solid 1px #ccc;
+            box-shadow: 0 4px 20px 0 rgb(0, 0, 0, 0.3);
+            height: 300px;
+            width: 260px;    
+            margin: 5px 20px;
+            padding: 5px;
         }
 
         .curso img {
             width: 100%;
-            padding: 5px;
-        }
-        
-        h4, p {
-            margin: 0;
-            font-weight: 300;
-            padding-bottom: 11px;
-            font-size: 24px;
-        }
-
-        p {
-            font-size: 18px;
+            max-height: 50%;
         }
 
         .curso-info {
-            height: 90px;
-            margin: 7px 15px;
+            padding: 10px;
+            height: 75px;
             overflow: hidden;
+        }
+
+        .curso-info h4 {
+            font-size: 1.4em;
+            font-weight: 100;
+            margin: 0;
         }
 
         .curso-preco {
             float: right;
-            margin: 15px;
-            font-size: 20px;
+            padding: 5px;
         }
 
         .preco-de {
             text-decoration: line-through;
-            color: rgb(160, 30, 30);
-            font-weight: 500;
+            color: firebrick;
         }
 
         .preco-por {
-            color: rgb(18, 117, 48);
-            font-weight: 1000;
+            color: green;
+            font-weight: bold;
+            font-size: 1.4em;
         }
     </style>
 </head>
