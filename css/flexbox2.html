@@ -4,9 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Flexbox #02</title>
-    <link rel="stylesheet" href="css/tag.css">
+    <!--<link rel="stylesheet" href="css/tag.css">-->
     <style>
-        /* ... */
+        div {
+            border: solid 5px dodgerblue;
+            font-size: 40px;
+        }
+
+        .flex-container div {
+            box-sizing: border-box;
+        }
+
+        .flex-container {
+            display: flex;
+            height: 300px;
+            width: 600px;
+        }
+
+        .flex-container div:nth-child(3) {
+            background-color: indianred;
+            /* ordem - padrão é 0 - elementos com ordem maior vão sendo exibidos por último */
+            order: 1; /* último */
+            order: 0; /* como todos tem 0 por padrão, vai ser exibido na ordem que foi definido no html */
+            order: -1; /* primeiro */
+
+            /* alinha o elemento */
+            align-self: center;
+            align-self: flex-end;
+            align-self: flex-start;
+            align-self: stretch;
+        }
+
+        .flex-container div {
+            width: 100px;
+            flex-grow: 0;
+            flex-grow: 1;
+        }
+
+        .flex-container div:nth-child(1) {
+            flex-grow: 2;
+        }
+
+        .flex-container {
+            width: 300px;
+            flex-shrink: 1;
+        }
+
+        .flex-container div:nth-child(1) {
+            flex-shrink: 5;
+        }
+
     </style>
 </head>
 

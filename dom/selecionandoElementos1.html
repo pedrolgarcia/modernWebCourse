@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #01</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo">.terceiro .ultimo</div>
+    <script>              
+        document.getElementById('primeiro').classList.add('destaque'); // Procura elemento pelo ID e adiciona uma classe ao classList
+        
+        const divs = document.getElementsByTagName('div'); // Procura todos os elementos que são div e retorna no HTML Collection - dir(divs) no console para ver
+        Array.from(divs).forEach(e => e.classList.remove('destaque')); // Transforma em um array e percorre o array de divs, removendo a classe delas
+
+        const divsArray = [...divs]; // spread
+        divsArray.forEach(e => e.classList.add('destaque'));
+
+        const ultimosElementos = document.getElementsByClassName('ultimo');
+        for (let e of ultimosElementos) {
+            e.classList.remove('destaque');
+        }
+    </script>
+</body>
+</html>

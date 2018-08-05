@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #02</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
+    <script>              
+        document.querySelector('#primeiro').classList.add('destaque'); // Procura o elemento que contém o seletor indicado. Devemos passar o identificador do seletor
+
+        const selecionar = seletor => {
+            document.querySelectorAll(seletor).forEach(e => e.classList.add('destaque')); // Procura todos os elementos do seletor indicado e retorna um NodeList (tem forEach)
+        }
+        const deselecionar = seletor => {
+            document.querySelectorAll(seletor).forEach(e => e.classList.remove('destaque'));
+        }
+
+        selecionar('div');
+        deselecionar('*');
+        selecionar('.terceiro.ultimo');
+
+    </script>
+</body>
+</html>

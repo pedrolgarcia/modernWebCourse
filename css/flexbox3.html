@@ -4,9 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Flexbox #03</title>
-    <link rel="stylesheet" href="css/tag.css">
+    <!--<link rel="stylesheet" href="css/tag.css">-->
     <style>
-        /* ... */
+        div {
+            border: solid 5px dodgerblue;
+            font-size: 40px;
+        }
+
+        .flex-container div {
+            box-sizing: border-box;
+        }
+        
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .flex-container div {
+            flex-basis: 100px; /* define o tamanho do elemento de acordo com a main axis */
+            width: 200px; /* flex-basis tem prioridade */
+        }
+
+        .flex-container div:nth-child(4) {
+            /* grow shrink basis */
+            flex: 3 6 100px;
+        }
+
+        .flex-container {
+            width: 300px;
+        }
     </style>
 </head>
 
