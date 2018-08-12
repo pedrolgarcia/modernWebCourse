@@ -9,9 +9,24 @@
 
 <body class="conteudo exercicio">
     <div>
-        <a href="https://google.com.br">Google</a>
+        <!-- onclick="navegarEm5s(event)" vantagem é que fica explícito no código mas perder flexibilidade -->
+        <a espera-um-pouco href="https://google.com.br">Google</a>
     </div>
     <script>
-        // ...
+        function navegarEm5s(e) {
+            e.preventDefault(); // cancela o comportamento padrão
+            console.log('Saindo em 5 segundos...');
+
+            setTimeout(() => {
+                const link = e.target; // elemento associado ao evento
+                window.location.href = link.href; // href da página recebe o href do elemento associado
+            }, 5000);
+        }
+
+        // const a = document.querySelector('a'); 
+        // a.onclick = navegarEm5s; não fica claro que aquele elemento está sendo manipulado pelo js
+
+        const a = document.querySelector('[espera-um-pouco]');
+        a.onclick = navegarEm5s; // forma mais equilibrada, cria
     </script>
 </body>

@@ -9,7 +9,31 @@
 
 <body class='conteudo exercicio'>
     <script>
-        // ...
+        const body = document.querySelector('body');
+
+        const div1 = document.createElement('div'); // criando um elemento
+        div1.classList.add('destaque'); // adicionando uma classe
+        div1.innerHTML = 'Primeiro'; // adicionando um conteúdo
+
+        const div2 = document.createElement('div');
+        div2.setAttribute('wm-atributo', 'valor'); // criando um atributo
+        div2.innerHTML = 'Segundo';
+
+        const p = document.createElement('p');
+        p.innerHTML = 'Terceiro';
+        const div3 = document.createElement('div');
+        div3.appendChild(p); // adiciona um elemento como último filho
+
+        body.appendChild(div1);
+        body.appendChild(div2);
+        body.appendChild(div3);
+
+        const texto = document.createTextNode('Antes...'); // criando elemento de texto - createElement também funciona
+        div3.insertBefore(texto, div3.childNodes[0]); // insere o elemento antes de outro (elemento, proximo)
+
+        const div4 = div3.cloneNode(true); // clona um elemento - true(elemento e seus filhos) / false(apenas o elemento)
+        body.appendChild(div4);
+        body.removeChild(div3); // remove um elemento
     </script>
 </body>
 

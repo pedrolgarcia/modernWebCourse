@@ -31,7 +31,14 @@
         <button>Pesquisar</button>
     </form>
     <script>
-        // ...
+        console.log(document.forms); // Retorna todos os formulários em html collection
+        console.log(document.forms[0]); // Retorna o formulário do índice indicado
+        console.log(document.getElementsByName('pesquisa')); // Retorna o formulário pelo name em nodelist
+        console.log(document.pesquisa); // Acessando direto pelo name do formulário
+        console.log(document.pesquisa.q); // Acessando os elementos do formulário
+        document.pesquisa.q.value = 'Linux';
+        document.pesquisa.hl.value = 'en-us';
+        console.log(document.pesquisa.hl.selectedIndex); // Retorna o índice que está selecionado
     </script>
 </body>
 

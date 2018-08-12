@@ -17,7 +17,24 @@
         </ul>
     </div>
     <script>
-        // ...
+        const lista = document.querySelector('div ul[destino="escritório"]');
+        console.log('Elemento "ul"...........');
+        console.log('childNodes', lista.childNodes); // nodeList com os nós filhos
+        console.log('destino', lista.destino); // undefined - não funciona para atributos personalizados
+        console.log('getAttribute', lista.getAttribute('destino'));
+        console.log('hasAttribute', lista.hasAttribute('destino')); // verifica se determinado atributo está presente no elemento
+        lista.setAttribute('destino', 'empresa'); // cria ou altera um atributo
+        lista.setAttribute('status', 'aberto');
+        lista.removeAttribute('destino'); // remove um atributo
+        console.log(lista.dataset.urgencia); // acessando atributos no padrão data-
+        lista.dataset.urgencia = 4;
+        console.log(lista.getAttribute('data-urgencia'));
+
+        // cuidado
+        const label = document.querySelector('label');
+        console.log(label.for); // não reconhece - palavra reservada do js
+        console.log(label.htmlFor);
+        console.log(label.getAttribute('for'));
     </script>
 </body>
 

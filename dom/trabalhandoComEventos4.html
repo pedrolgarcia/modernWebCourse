@@ -31,6 +31,37 @@
         <button wm-submit>Pesquisar</button>
     </form>
     <script>
-        // ...
+        // selecionando o button
+        // const submit = document.querySelector('[wm-submit]'); 
+        // submit.onclick = function(e) {
+        //     e.preventDefault(); // cancela o comportamento padrão do submit
+
+        //     const form = e.target.parentNode; // pega o elemento pai do button que é o form
+        //     const formData = new FormData(form); // pega todos os dados do formulário
+        //     formData.append('ajax', true); // adiciona outro dado
+        //     console.log(formData.get('q')); // retorna uma dado
+        //     console.log(formData.has('hl')); // verifica se contém um dado
+
+        //     for(let dado of formData) { // iterator
+        //         console.log(dado);
+        //     }
+        // }
+
+        // selecionando o formulário
+        const form = document.forms[0]; 
+        form.onsubmit = function(e) { // muda o evento
+            e.preventDefault();
+            
+            const form = e.target;
+            const formData = new FormData(form); 
+            formData.append('ajax', true); 
+            console.log(formData.get('q')); 
+            console.log(formData.has('hl')); 
+
+            for(let dado of formData) { 
+                console.log(dado);
+            }
+        }
+
     </script>
 </body>

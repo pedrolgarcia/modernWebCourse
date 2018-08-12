@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Pixel';
+}
+
+div[wm-flappy] {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #6abff5;
+    border: #43a1db solid 3px;
+    width: 700px;
+    height: 400px;
+}
+
+.cano {
+    display: flex;
+    flex-direction: column;
+    width: 85px;
+    margin-right: 130px;
+}
+
+.ponta {
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(90deg, #1f8e2c, #37d64a);
+    border: #000 2px solid;
+}
+
+.corpo {
+    width: 85%;
+    height: 100%;
+    margin: 0 auto;
+    background: linear-gradient(90deg, #1f8e2c, #37d64a) 100%;
+    border: #000 2px solid;
+    border-top: none;
+    border-bottom: none;
+}
+
+.cima {
+    justify-content: flex-end;
+    height: 150px;
+}
+
+.baixo {
+    justify-content: flex-start;
+    height: 150px;
+}

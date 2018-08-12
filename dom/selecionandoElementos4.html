@@ -22,7 +22,32 @@
         <p>Fim</p>
     </div>
     <script>
-        // ...
+        function log() {
+            console.log(this);
+        }
+
+        HTMLCollection.prototype.log = log;
+        HTMLElement.prototype.log = log;
+        NodeList.prototype.log = log;
+        Node.prototype.log = log;
+
+        const lista = document.querySelector('div ul');
+        lista.parentNode.log(); // Retorna o pai do elemento
+        lista.childNodes.log(); // Retorna os filhos do elemento em nodelist. Os espaços no html geram um efeito: traz o text
+
+        const primeiro = lista.firstChild; // Primeiro filho
+        primeiro.log(); // text
+        primerio.nextSibling.log(); // proximo irmão
+
+        const ultimo = list.lastChild;
+        ultimo.log(); // text
+        ultimo.previousSibling.log(); // irmão anterior, no caso o último
+
+        list.children.log(); // Retorna todos os filhos em html collection
+        list.firstElementChild.log(); // Retorna o primeiro elemento filho de fato, sem o text
+        list.lastElementChild.log(); // Último elemento filho
+        list.parentNode.previousElementSibling.log(); // Irmão anterior ao pai
+        list.parentNode.nextElementSibling.log(); // Próximo irmão do pai
     </script>
 </body>
 

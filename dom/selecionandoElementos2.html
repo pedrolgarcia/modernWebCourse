@@ -20,9 +20,21 @@
         }
 
         selecionar('div');
-        deselecionar('*');
-        selecionar('.terceiro.ultimo');
 
+        deselecionar('*'); // Todos os elementos (operador universal)
+        selecionar('.terceiro.ultimo'); // Todos os elementos com classe terceiro e ultimo
+
+        deselecionar('*');
+        selecionar(':not(#primeiro)'); // Todos os elementos exceto o com id primeiro
+
+        deselecionar('*');
+        selecionar(':nth-child(1)'); // Primeiro filho de cada elemento
+
+        deselecionar('*');
+        selecionar('div:nth-of-type(1)'); // Primeiro elemento do tipo div
+
+        deselecionar('*');
+        selecionar('[wb-attrib]'); // Todos os elementos com o atributo personalizado
     </script>
 </body>
 </html>

@@ -15,7 +15,28 @@
         <img src='http://files.cod3r.com.br/curso-web/logo-estreita.png' alt='logo'>
     </div>
     <script>
-        // ...
+        const img = document.querySelector('img');
+        console.log('getAttribute', img.getAttribute('src')); // Acessando pelo método, pega o valor
+        console.log('src', img.src); // Acessando direto
+        console.log('["src"]', img['src']);
+        console.log('alt', img.alt);
+
+        console.log('Elemento "img".............');
+        console.log('NodeType', img.nodeType); // Tipo de nó (1 = elemento)
+        console.log('NodeName', img.nodeName); // Nome do elemento
+        
+        const src = img.getAttributeNode('src'); // Pega o nó
+        console.log('Atributo "src".............');
+        console.log('NodeType', src.nodeType);
+        console.log('NodeName', src.nodeName);
+        console.log('NodeValue', src.nodeValue);
+
+        const link = document.querySelector('a');
+        console.log('Elemento "a".............');
+        console.log('href', link.href);
+        console.log('firstChild.nodeType', link.firstChild.nodeType); // Tipo de nó do primeiro filho
+        link.firstChild.nodeValue = 'Novo texto'; // Alterando um valor
+
     </script>
 </body>
 
