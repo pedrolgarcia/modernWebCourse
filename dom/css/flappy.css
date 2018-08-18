@@ -2,50 +2,62 @@
     box-sizing: border-box;
 }
 
-body {
+@font-face {
     font-family: 'Pixel';
+    src: url('../fonts/Pixel.ttf');
 }
 
-div[wm-flappy] {
+[wm-flappy] {
+    position: relative;
+    border: 5px solid dodgerblue;
+    height: 500px;
+    width: 1000px;
+    margin: 15px;
+    background-color: deepskyblue; 
+    overflow: hidden;
+}
+
+.passaro {
+    position: absolute;
+    width: 60px;
+    left: calc(50% - 30px);
+}
+
+.par-de-barreiras {
+    position: absolute;
+    top: 0;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #6abff5;
-    border: #43a1db solid 3px;
-    width: 700px;
-    height: 400px;
 }
 
-.cano {
+.barreira {
     display: flex;
     flex-direction: column;
-    width: 85px;
-    margin-right: 130px;
+    align-items: center;
 }
 
-.ponta {
-    width: 100%;
-    height: 20px;
-    background: linear-gradient(90deg, #1f8e2c, #37d64a);
-    border: #000 2px solid;
+.barreira .borda {
+    height: 25px;
+    width: 110px;
+    background: linear-gradient(90deg, #639301, #A5E82E);
+    border: 2px solid #000;
 }
 
-.corpo {
-    width: 85%;
-    height: 100%;
-    margin: 0 auto;
-    background: linear-gradient(90deg, #1f8e2c, #37d64a) 100%;
-    border: #000 2px solid;
-    border-top: none;
-    border-bottom: none;
+.barreira .corpo {
+    height: 40px;
+    width: 90px;
+    background: linear-gradient(90deg, #639301, #A5E82E);
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
 }
 
-.cima {
-    justify-content: flex-end;
-    height: 150px;
-}
-
-.baixo {
-    justify-content: flex-start;
-    height: 150px;
+.progresso {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-family: 'Pixel';
+    font-size: 70px;
+    z-index: 100;
 }
