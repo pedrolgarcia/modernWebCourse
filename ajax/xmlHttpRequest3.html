@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>XMLHttpRequest #03</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Estados</h1>
+
+    <script>
+        function ajax(config) {
+            const xhr = new XMLHttpRequest();
+            xhr.open(config.metodo, config.url, true);
+
+            /*
+            * 0 = requisição não inicializada
+            * 1 = conexão com o servidor estabelecida
+            * 2 = requisição recebida
+            * 3 = processando requisição
+            * 4 = requisição finalizada e resposta pronta 
+            */
+            xhr.onreadystatechange = e => { // ao mudar o estado da requisição
+                if(xhr.readyState === 4) { 
+                    if(xhr.status === 200) {
+                        config.sucesso(xhr.responseXML); // faz um parse da resposta para xml
+                    } else if(xhr.status >= 400) {
+                        config.erro({
+                            codigo: xhr.status,
+                            texto: xhr.statusText
+                        });
+                    }
+                }
+            }
+
+            xhr.send();
+        }
+
+        ajax({
+            url: "dados/estados.xml",
+            metodo: "get",
+            sucesso(resposta) {
+                const estados = resposta.getElementsByTagName('estado'); // como a resposta é em xml pode-se usar as funções de manipulação de dom
+                const itens = Array.from(estados).reduce((html, estado) => html + `<li>${estado.attributes.nome.value}</li>`, ''); // altera para li
+                document.body.insertAdjacentHTML('beforeend', `<ul>${itens}</ul>`);
+            },
+            erro(e) {
+                const msg = document.createTextNode(`${e.codigo}: ${e.texto}`);
+                document.body.appendChild(msg);
+            }
+        })
+    </script>
+</body>
