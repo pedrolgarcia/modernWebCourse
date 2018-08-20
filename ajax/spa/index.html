@@ -25,6 +25,34 @@
     </nav>
     <div class="pagina"></div>
     <script>
-        // ...
+        function navegarViaAjax(url, seletor, push = true) {
+            if(!url || !seletor) return;
+
+            const elemento = document.querySelector(seletor);
+            fetch(url)
+                .then(res => res.text())
+                .then(html => {
+                    elemento.innerHTML = html
+                    if(push) {
+                        history.pushState({ seletor }, "Página Ajax", url); // estado que deseja manter, título da página e a url
+                    }
+                });
+        }
+
+        document.querySelectorAll('[wm-link]').forEach(link => {
+            const url = link.attributes['wm-link'].value;
+            const seletor = link.attributes['wm-destino'].value;
+
+            link.onclick = e => {
+                e.preventDefault();
+                navegarViaAjax(url, seletor);
+            }
+        });
+
+        window.onpopstate = e => {
+            if(e.state) {
+                navegarViaAjax(window.location.href, e.state.seletor, false);
+            }
+        }
     </script>
 </body>
