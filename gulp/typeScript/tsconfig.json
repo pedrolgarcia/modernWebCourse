@@ -1,10 +1,10 @@
-{
+{ // arquivo de configuração ts
     "files": [
-        "src/**/*.ts"
+        "src/**/*.ts" // arquivos do projeto
     ],
     "compilerOptions": {
-        "rootDir": "src",
-        "noImplicitAny": true,
-        "target": "es5"
+        "rootDir": "src", 
+        "noImplicitAny": true, // obriga a declararmos any quando a variável não tiver nenhum tipo
+        "target": "es5" // versão do transpile
     }
 }
