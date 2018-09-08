@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 
 <head>
@@ -21,6 +21,26 @@
     <input type="text" placeholder="Digite e Selecione">
     <div id="resultado2">?</div>
     <script>
-        // ...
+        const alternarDestaque = () => $('#div1').toggleClass('destaque');
+        // $('#div1').on('mouseenter mouseleave', alternarDestaque);
+        // hover = ao passar o mouse em cima
+        $('#div1').hover(alternarDestaque, alternarDestaque); 
+        // se passarmos 1 parâmetro ele executa a função duas vezes, se passarmos 2, executa a primeira quando o mouse entrar e a segunda quando sair
+
+        $('#div1').one('mouseenter', e => alert('Aviso IMPORTANTE: Obrigado!')); // evento só ocorre uma vez
+        $('#div1').dblclick(e => $('#div1').fadeOut(1000).fadeIn(1000)); // evento ocorre ao dar um clique duplo com o mouse
+
+        $(window).resize(function(e) { // sempre que a tela do browser redimensionar
+            // pegando a altura e largura da janela
+            const l = $(window).width(); 
+            const a = $(window).height();
+            $('#resultado1').html(`Largura: ${l} e Altura ${a}`);
+        });
+
+        $(':input').select(e => { // sempre que selecionarmos um texto
+            const inicio = e.target.selectionStart;
+            const fim = e.target.selectionEnd;
+            $('#resultado2').html(e.target.value.substring(inicio, fim));
+        });
     </script>
 </body>

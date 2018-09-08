@@ -12,9 +12,24 @@
     <h1>Manipulando CSS</h1>
     <div id='div1'>1</div>
     <div id='div2'>2</div>
-    <div id='div3'>3</div>
     <div id='resultado'></div>
     <script>
-        // ...
+        const fonte = $('#div1').css('font-family'); // lendo um atributo css
+        $('#resultado').append(`Fonte é ${fonte}`);
+
+        $('#div1').css('font-size', '3em'); // seta um atributo com valor no estilo
+        $('#div1').css({ 'font-size': '3em', 'color': 'yellow' }); // setando vários atributos a partir de um objeto
+        $('#div1').css('font-size', function() { // passando uma callback 
+            return `${2 * 2}em`;
+        });
+
+        $('#div2').addClass('destaque'); // adiciona uma classe ao elemento
+        
+        const temClasse = $('#div2').hasClass('destaque2'); // verifica se tem uma classe
+        $('#resultado').append(`<br>Tem class? ${temClasse}`);
+
+        $('#div2').removeClass('destaque'); // remove uma classe do elemento
+        $('#div2').toggleClass('destaque'); // remove se já tiver, e adiciona se não tiver
+        $('#div2').toggleClass('destaque'); 
     </script>
 </body>

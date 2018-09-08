@@ -20,6 +20,33 @@
     <input type="text" placeholder="Cor de Background">
 
     <script>
-        // ...
+        function mostrarPosicaoMouse(e) {
+            $('#posicao').html(`x: ${e.clientX} y: ${e.clientY}`);
+        }
+        
+        // registrando eventos
+        $('body').on('mousemove', mostrarPosicaoMouse); // pelo método on - passamos o nome do evento e a função a ser executada (sem invocar)
+        $('#posicao').mouseover(e => { // pelo nome do método, passamos apenas a função
+            $('body').off('mousemove', mostrarPosicaoMouse); // off "desregistra" um evento de um elemento
+        })
+        $('#posicao').mouseleave(e => {
+            $('body').mousemove(mostrarPosicaoMouse);
+        })
+
+        let cliques = 0;
+        $('body').click(e => {
+            $('#cliques').html(`Cliques: ${++cliques}`);
+        });
+
+        const backgroundOriginal = $('body').css('background-color');
+
+        $('input').keyup(function (e) { // leyup traz o valor atualizado digitado, keydown e keypress não
+            const valor = $(this).val(); // usamos function para que o this seja o elemento em questão, usando arrow o this não varia, o this seria o window
+            if(valor.match(/#[\da-fA-F]{3,6}/)) {
+                $('body').css('background-color', valor);
+            } else {
+                $('body').css('background-color', backgroundOriginal);
+            }
+        });
     </script>
 </body>

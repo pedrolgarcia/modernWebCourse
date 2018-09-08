@@ -22,7 +22,42 @@
 <body class='conteudo exercicio'>
     <h1>Manipulando Atributos</h1>
     <div wm-relogio='1000'></div>
+    <div wm-relogio='1000'></div>
     <script>
-        // ...
+        function Relogio(elemento) { // função construtora, recebe um elemento que no caso é um nó da dom
+            const horaCerta = $('<p>').html('0');
+            const botaoMenos = $('<button>').html('-');
+            const botaoMais = $('<button>').html('+');
+
+            const $elemento = $(elemento); // tranformando o elemento nó da dom em um elemento jquery para utilizar as funções
+            $elemento.append(horaCerta, botaoMenos, botaoMais);
+
+            const getIntervaloAtual = () => parseInt($elemento.attr('wm-relogio')); // retorna o valor de um atributo
+
+            let temporizador = null;
+            const iniciar = () => {
+                if(temporizador) clearInterval(temporizador);
+                temporizador = setInterval(() => {
+                    horaCerta.html(new Date().toLocaleString('pt-BR'));
+                }, getIntervaloAtual());
+            }
+
+            const alterarIntervalo = delta => {
+                const novo = Math.max(getIntervaloAtual() + delta, 1000); // pega o mairo valor 
+                $elemento.attr('wm-relogio', novo); // seta um valor ao atributo
+                iniciar();
+            }
+
+            botaoMenos.click(e => alterarIntervalo(1000));
+            botaoMais.click(e => alterarIntervalo(-1000));
+            
+            iniciar();
+
+        }
+
+        $('[wm-relogio]').each((i, e) => new Relogio(e)); // selecionando todos os elementos com atributo wm-relogio e criando uma instância de Relogio para cada um
+        
+        $('[wm-relogio]').attr({ opa: 1, novo: true }); // criando atributos com seus valores passando um objeto
+        $('[wm-relogio]').removeAttr('opa').removeAttr('novo'); // remove atributos
     </script>
 </body>
